@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { MysticCreaturesModule } from './mystic-creatures/mystic-creatures.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { GoldBalanceModule } from './gold-balance/gold-balance.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { AuthModule } from './auth/auth.module';
     MysticCreaturesModule,
     UsersModule,
     AuthModule,
+    GoldBalanceModule,
   ],
   controllers: [AppController],
   providers: [AppService],

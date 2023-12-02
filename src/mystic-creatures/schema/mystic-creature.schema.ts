@@ -15,7 +15,7 @@ export enum Nationality {
 
 export type MysticCreatureDocument = HydratedDocument<MysticCreature>;
 
-@Schema({ collection: 'mistic_creatures' })
+@Schema({ collection: 'mistic_creatures', versionKey: false, timestamps: true })
 export class MysticCreature {
   @Prop(
     raw({
@@ -59,6 +59,7 @@ export class MysticCreature {
 
   @Prop()
   monsterPassword: string;
+  public _id: string;
 }
 
 export const MysticCreatureSchema =

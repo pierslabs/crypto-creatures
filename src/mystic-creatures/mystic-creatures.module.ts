@@ -17,5 +17,6 @@ import { AuthModule } from 'src/auth/auth.module';
   ],
   controllers: [MysticCreaturesController],
   providers: [MysticCreaturesService],
+  exports: [MysticCreaturesService],
 })
 export class MysticCreaturesModule {}
