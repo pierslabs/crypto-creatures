@@ -26,6 +26,7 @@ export class MysticCreaturesController {
   }
 
   @Get()
+  @Auth(ValidRoles.BoredMike, ValidRoles.User, ValidRoles.CEO)
   findAll() {
     return this.mysticCreaturesService.findAll();
   }

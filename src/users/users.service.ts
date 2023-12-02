@@ -9,7 +9,7 @@ import { User } from './schema/users.schema';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import * as bcrypt from 'bcrypt';
-import { Role } from './types/role';
+import { Role } from './enums/roles.enum';
 
 @Injectable()
 export class UsersService {
