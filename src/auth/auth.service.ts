@@ -72,4 +72,9 @@ export class AuthService {
 
     return user;
   }
+
+  isDayOfWeek(dayNumber: number): boolean {
+    const today = new Date().getDay();
+    return today === dayNumber;
+  }
 }
