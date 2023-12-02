@@ -7,7 +7,7 @@ import {
 import { ValidRoles } from '../enums/roles.enum';
 
 export const CurrentUser = createParamDecorator(
-  (roles: ValidRoles[], context: ExecutionContext) => {
+  (roles: ValidRoles[] = [], context: ExecutionContext) => {
     const req = context.switchToHttp().getRequest();
 
     const user = req.user;
