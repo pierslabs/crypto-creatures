@@ -46,7 +46,8 @@ export class CreateMysticCreatureDto {
   image: string;
 
   @IsInt({ message: 'GoldBalance must be an integer' })
-  goldBalance: number;
+  @IsOptional()
+  goldBalance?: number;
 
   @IsInt({ message: 'Speed must be an integer' })
   speed: number;

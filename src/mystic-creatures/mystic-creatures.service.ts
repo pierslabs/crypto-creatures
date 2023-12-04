@@ -43,6 +43,7 @@ export class MysticCreaturesService {
 
       const createdMysticCreature = new this.mysticCreatureModel({
         ...createMysticCreatureDto,
+        goldBalance: createMysticCreatureDto.goldBalance || 0,
         monsterPassword: hashPassword,
       });
       return createdMysticCreature.save();
