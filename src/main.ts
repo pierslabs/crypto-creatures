@@ -16,7 +16,6 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
     .addBearerAuth()
-    .setTitle('Crypto Monster API')
     .setDescription('The Crypto Monster API description')
     .setVersion('1.0')
     .addTag('crypto-monster')
