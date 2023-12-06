@@ -12,8 +12,11 @@ import { CreateMysticCreatureDto } from './dto/create-mystic-creature.dto';
 import { UpdateMysticCreatureDto } from './dto/update-mystic-creature.dto';
 import { Auth } from 'src/auth/decorators/auth.decorator';
 import { ValidRoles } from 'src/auth/enums/roles.enum';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @Controller('mystic-creatures')
+@ApiTags('Mystic Creatures')
+@ApiBearerAuth()
 export class MysticCreaturesController {
   constructor(
     private readonly mysticCreaturesService: MysticCreaturesService,

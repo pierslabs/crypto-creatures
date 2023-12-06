@@ -5,7 +5,10 @@ import { ValidRoles } from 'src/auth/enums/roles.enum';
 import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
 import { User } from 'src/users/schema/users.schema';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
+import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
 
+@ApiTags('Gold Balance')
+@ApiBearerAuth()
 @Controller('gold-balance')
 export class GoldBalanceController {
   constructor(private readonly goldBalanceService: GoldBalanceService) {}
