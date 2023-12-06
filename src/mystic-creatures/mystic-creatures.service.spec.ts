@@ -1,17 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Test, TestingModule } from '@nestjs/testing';
 import { MysticCreaturesService } from './mystic-creatures.service';
-import {
-  Gender,
-  MysticCreature,
-  Nationality,
-} from './schema/mystic-creature.schema';
+import { Gender, MysticCreature } from './schema/mystic-creature.schema';
 import { Model, model } from 'mongoose';
 
 import { getModelToken } from '@nestjs/mongoose';
 import { CreateMysticCreatureDto } from './dto/create-mystic-creature.dto';
 import { UpdateMysticCreatureDto } from './dto/update-mystic-creature.dto';
-import { Logger } from '@nestjs/common';
 
 describe('MysticCreaturesService', () => {
   let service: MysticCreaturesService;
@@ -25,7 +20,7 @@ describe('MysticCreaturesService', () => {
     gender: Gender.Female,
     description:
       'A majestic and powerful creature, known for its extraordinary abilities.',
-    nationality: ['US', 'DE'] as Nationality[],
+    nationality: ['US', 'DE'],
     image: 'https://example.com/cool-monster-image.jpg',
     goldBalance: 18,
     speed: 97,

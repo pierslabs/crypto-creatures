@@ -7,10 +7,11 @@ import {
   IsNotEmpty,
   IsObject,
   ValidateNested,
+  Length,
 } from 'class-validator';
 import { Type } from 'class-transformer';
 
-import { Gender, Nationality } from '../schema/mystic-creature.schema';
+import { Gender } from '../schema/mystic-creature.schema';
 
 export class NameDto {
   @IsString({ message: 'First name must be a string' })
@@ -38,8 +39,12 @@ export class CreateMysticCreatureDto {
   description: string;
 
   @IsArray({ message: 'Nationality must be an array' })
-  @IsEnum(Nationality, { each: true, message: 'Invalid nationality' })
-  nationality: Nationality[];
+  @IsString({ each: true, message: 'Each nationality should be a string' })
+  @Length(2, 2, {
+    each: true,
+    message: 'Each nationality should be a string of two characters',
+  })
+  nationality: string[];
 
   @IsString({ message: 'Image must be a string' })
   @IsNotEmpty({ message: 'Image cannot be empty' })

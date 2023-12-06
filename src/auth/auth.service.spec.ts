@@ -73,10 +73,18 @@ describe('AuthService', () => {
   });
 
   it('should check if a day is a weekday', () => {
-    const dayNumber = 1;
+    const today = new Date().getDay();
 
-    const result = service.isDayOfWeek(dayNumber);
+    const result = service.isDayOfWeek(today);
 
     expect(result).toBe(true);
+  });
+
+  it('should check if a day is not a weekday', () => {
+    const today = new Date().getDay() - 1;
+
+    const result = service.isDayOfWeek(today);
+
+    expect(result).toBe(false);
   });
 });

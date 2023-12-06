@@ -7,12 +7,6 @@ export enum Gender {
   Other = 'other',
 }
 
-export enum Nationality {
-  US = 'US',
-  SP = 'SP',
-  DE = 'DE',
-}
-
 export type MysticCreatureDocument = HydratedDocument<MysticCreature>;
 
 @Schema({ collection: 'mistic_creatures', versionKey: false, timestamps: true })
@@ -38,9 +32,8 @@ export class MysticCreature {
 
   @Prop({
     type: [String],
-    enum: Object.values(Nationality),
   })
-  nationality: Nationality[];
+  nationality: string[];
 
   @Prop()
   image: string;
