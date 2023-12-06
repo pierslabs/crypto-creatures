@@ -49,6 +49,30 @@ The application will be available at `http://localhost:3002` by default.
 ### Swagger
  - https://crypto-creatures.pedro-losas.com/api
 
+#### Roles
+1. Bored Mike
+  ```bash
+    name: 'Mike'
+    password: '123456'
+  ```
+2. CEO
+  ```bash
+  name: "Ceo",
+  password: "123456"
+  ```
+3. User
+  ```bash
+    name: 'User'
+    password: '123456'
+  ```
+
+4. Anyone can create a user in Swagger at the auth/register endpoint
+
+#### Usage
+ - log in 
+ - copy token 
+ - check the 'Authorize' button, and paste token.
+
 
 ### Deployment of the Application in a Production Environment
 The application has been successfully deployed in a production environment, specifically on a privately managed Virtual Private Server (VPS). Nginx has been configured as the web server, and PM2 has been employed as the process manager.   
