@@ -5,7 +5,7 @@ import { ValidRoles } from 'src/auth/enums/roles.enum';
 import { CurrentUser } from 'src/auth/decorators/current-user.decorator';
 import { User } from 'src/users/schema/users.schema';
 import { CreateTransactionDto } from './dto/create-transaction.dto';
-import { ApiTags, ApiBearerAuth } from '@nestjs/swagger';
+import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 
 @ApiTags('Gold Balance')
 @ApiBearerAuth()
@@ -14,6 +14,7 @@ export class GoldBalanceController {
   constructor(private readonly goldBalanceService: GoldBalanceService) {}
 
   @Post('add/:cretureId')
+  @ApiOperation({ summary: 'Only CEO can add gold' })
   @Auth(ValidRoles.CEO)
   addGold(
     @CurrentUser() user: User,
@@ -27,8 +28,13 @@ export class GoldBalanceController {
     );
   }
 
-  @Auth(ValidRoles.BoredMike)
+  /**
+   * only bored mike can remove gold
+   */
+
   @Post('remove/:cretureId')
+  @ApiOperation({ summary: 'Only Bored Mike can remove gold' })
+  @Auth(ValidRoles.BoredMike)
   removeGold(
     @CurrentUser() user: User,
     @Param('cretureId') creatureId: string,
