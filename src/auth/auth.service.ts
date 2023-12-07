@@ -3,7 +3,6 @@ import {
   Injectable,
   InternalServerErrorException,
   Logger,
-  UnauthorizedException,
 } from '@nestjs/common';
 
 import { UsersService } from 'src/users/users.service';
@@ -14,7 +13,6 @@ import { CreateUserDto } from 'src/users/dto/create-user.dto';
 
 import { JwtService } from '@nestjs/jwt';
 import { User } from 'src/users/schema/users.schema';
-import { ValidRoles } from './enums/roles.enum';
 
 @Injectable()
 export class AuthService {
@@ -62,11 +60,6 @@ export class AuthService {
 
   async validateUser(id: string): Promise<User> {
     const user = await this.usersService.findOne(id);
-
-    if (user.role[0] === ValidRoles.User.toString())
-      throw new UnauthorizedException(
-        'User is not authorized, talk with admin 👮‍♂️',
-      );
 
     delete user.password;
 
