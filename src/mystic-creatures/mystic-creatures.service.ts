@@ -103,7 +103,7 @@ export class MysticCreaturesService {
     }
   }
 
-  async remove(id: string) {
+  async remove(id: string): Promise<{ data: string }> {
     const creature = await this.findOne(id);
     if (!creature) {
       throw new NotFoundException('Creature does not exist');
