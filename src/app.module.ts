@@ -5,6 +5,7 @@ import { MysticCreaturesModule } from './mystic-creatures/mystic-creatures.modul
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
 import { GoldBalanceModule } from './gold-balance/gold-balance.module';
+import { VotesModule } from './votes/votes.module';
 
 @Module({
   imports: [
@@ -14,6 +15,7 @@ import { GoldBalanceModule } from './gold-balance/gold-balance.module';
     UsersModule,
     AuthModule,
     GoldBalanceModule,
+    VotesModule,
   ],
 })
 export class AppModule {}
