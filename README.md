@@ -73,7 +73,33 @@ The application will be available at `http://localhost:3002` by default.
  - copy token 
  - check the 'Authorize' button, and paste token.
 
+### Socket.io
+### Vote Events
+
+- **Event:** `createVote`
+  - **Emit:** `newVote`
+    - **Payload:**
+      - `msg`: 'New vote'
+      - `content`: Information about the new vote.
+
+- **Event:** `getAllVotes`
+  - **Emit:** `allVotes`
+    - **Payload:**
+      - `msg`: 'All votes'
+      - `content`: List of all votes.
+
+- **Event:** `removeVote`
+  - **Description:** Triggered when a vote is removed.
+  - **Emit:** `removeVote`
+    - **Payload:**
+      - `msg`: 'Vote removed'
+      - `content`: Removal status.
+
+
+
+
 
 ### Deployment of the Application in a Production Environment
 The application has been successfully deployed in a production environment, specifically on a privately managed Virtual Private Server (VPS). Nginx has been configured as the web server, and PM2 has been employed as the process manager.   
 I commonly use GitHub Actions for continuous deployment.
+
